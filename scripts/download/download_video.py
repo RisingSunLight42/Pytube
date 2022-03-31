@@ -1,11 +1,17 @@
 from pytube import YouTube
 
 # Définit les fonctions de progression du téléchargement
-def on_progress():
+def on_progress(stream, chunk, bytes_remaining):
     pass
 
-def on_complete():
-    pass
+def on_complete(stream, file_path):
+    """Fonction appelée lorsque le téléchargement est terminé
+
+    Args:
+        stream (stream object): objet contenant les différentes informations du fichier vidéo
+        file_path (str): chemin d'accès vers le fichier vidéo
+    """
+    print(f"La vidéo '{stream.title}' a bien été enregistrée dans le chemin ci-contre :\n{file_path}")
 
 # Demande le lien de la vidéo et la télécharge
 url = input("Donne-moi un lien de vidéo à télécharger ! ") # Demande le lien de la vidéo
