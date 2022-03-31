@@ -2,7 +2,15 @@ from pytube import YouTube
 
 # Définit les fonctions de progression du téléchargement
 def on_progress(stream, chunk, bytes_remaining):
-    pass
+    """Fonction appelée lorsque le téléchargement est en cours.
+
+    Args:
+        stream (stream object): objet contenant les différentes informations du fichier vidéo
+        chunk (chunk object): segment de données binaires encore non écrites sur le disque
+        bytes_remaining (int): quantité de bytes restants à télécharger
+    """
+    progression = (1 - bytes_remaining / stream.filesize) * 100
+    print(f"{round(progression, 2)} %")
 
 def on_complete(stream, file_path):
     """Fonction appelée lorsque le téléchargement est terminé
@@ -19,4 +27,5 @@ video = YouTube(url,
                 on_progress_callback=on_progress,
                 on_complete_callback=on_complete,) # Crée l'objet Youtube correspondant à la vidéo
 streams_progressive = video.streams.filter(progressive=True) # Récupère toutes les qualités possibles avec vidéo + audio (qualité max : 720p)
-streams_progressive.get_highest_resolution().download() # Télécharge la qualité la plus haute
+flux_video_dl = streams_progressive.get_highest_resolution() # Stocke le flux vidéo que l'on souhaite télécharger, avec la qualité la plus haute possible
+flux_video_dl.download(filename=flux_video_dl.default_filename.replace(" ", "_")) # Télécharge le flux, en remplaçant les espaces du nom de fichier par des "_"
