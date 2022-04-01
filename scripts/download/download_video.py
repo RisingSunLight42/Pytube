@@ -26,6 +26,13 @@ url = input("Donne-moi un lien de vidéo à télécharger ! ") # Demande le lien
 video = YouTube(url,
                 on_progress_callback=on_progress,
                 on_complete_callback=on_complete,) # Crée l'objet Youtube correspondant à la vidéo
-streams_progressive = video.streams.filter(progressive=True) # Récupère toutes les qualités possibles avec vidéo + audio (qualité max : 720p)
-flux_video_dl = streams_progressive.get_highest_resolution() # Stocke le flux vidéo que l'on souhaite télécharger, avec la qualité la plus haute possible
-flux_video_dl.download(filename=flux_video_dl.default_filename.replace(" ", "_")) # Télécharge le flux, en remplaçant les espaces du nom de fichier par des "_"
+audio_ou_video = input("Veux-tu télécharger uniquement un fichier AUDIO ou un fichier VIDEO (répondre par AUDIO ou VIDEO) ") # Demande ce que veut l'utilisateur
+if audio_ou_video == "AUDIO": # Si l'utilisateur a demandé un audio
+    flux_audio_dl = video.streams.filter(only_audio=True)[0]
+    flux_audio_dl.download(filename=flux_audio_dl.default_filename.replace(" ", "_")) # Télécharge le flux audio, en remplaçant les espaces du nom de fichier par des "_"
+elif audio_ou_video == "VIDEO": # Si l'utilisateur a demandé une video
+    streams_progressive = video.streams.filter(progressive=True) # Récupère toutes les qualités possibles avec vidéo + audio (qualité max : 720p)
+    flux_video_dl = streams_progressive.get_highest_resolution() # Stocke le flux vidéo que l'on souhaite télécharger, avec la qualité la plus haute possible
+    flux_video_dl.download(filename=flux_video_dl.default_filename.replace(" ", "_")) # Télécharge le flux, en remplaçant les espaces du nom de fichier par des "_"
+else: # Si le mot clé ne colle pas
+    print("Le mot clé que tu m'as donné est incorrect !")
