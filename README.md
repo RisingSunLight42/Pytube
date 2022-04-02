@@ -12,3 +12,5 @@ La partie durée est une suite logique de l'utilisation du module Pytube pour mo
 
 Au départ, ces projets sont sous la forme de scripts à exécuter pour pouvoir les utiliser.  
 Cependant, en fin de projet, celui-ci devrait prendre la forme d'une application regroupant les deux parties, ainsi que d'un bot Discord.
+
+_Projet initié par les vidéos de [Clear Code](https://www.youtube.com/ClearCode)_
