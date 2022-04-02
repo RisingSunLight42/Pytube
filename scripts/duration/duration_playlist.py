@@ -14,3 +14,5 @@ duree_totale -= (duree_totale // 3600) * 3600 # Retire les secondes correspondan
 minute = duree_totale // 60
 duree_totale -= (duree_totale // 60) * 60 # Retire les secondes correspondant au nombre de minutes de la durée totale
 seconde = duree_totale # La durée totale restante correspond aux secondes (variable crée pour une meilleure lisibilitée)
+
+print(f"La durée de la playlist est de {heure}h{minute}m{seconde}s.") # Informe de la durée totale de la playlist
