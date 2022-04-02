@@ -1,4 +1,7 @@
+from tkinter.filedialog import askdirectory
 from pytube import YouTube
+from tkinter import Tk
+from tkinter.filedialog import askdirectory
 
 # Définit les fonctions de progression du téléchargement
 def on_progress(stream, chunk, bytes_remaining):
@@ -20,6 +23,13 @@ def on_complete(stream, file_path):
         file_path (str): chemin d'accès vers le fichier vidéo
     """
     print(f"La vidéo '{stream.title}' a bien été enregistrée dans le chemin ci-contre :\n{file_path}")
+
+# Demande le chemin d'accès où le fichier sera téléchargé
+root = Tk()
+root.wm_withdraw()
+root.iconify()
+path = askdirectory()
+root.destroy()
 
 # Demande le lien de la vidéo et la télécharge
 url = input("Donne-moi un lien de vidéo à télécharger ! ") # Demande le lien de la vidéo
