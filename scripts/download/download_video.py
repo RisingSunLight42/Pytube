@@ -39,10 +39,12 @@ video = YouTube(url,
 audio_ou_video = input("Veux-tu télécharger uniquement un fichier AUDIO ou un fichier VIDEO (répondre par AUDIO ou VIDEO) ") # Demande ce que veut l'utilisateur
 if audio_ou_video == "AUDIO": # Si l'utilisateur a demandé un audio
     flux_audio_dl = video.streams.filter(only_audio=True)[0]
-    flux_audio_dl.download(filename=flux_audio_dl.default_filename.replace(" ", "_")) # Télécharge le flux audio, en remplaçant les espaces du nom de fichier par des "_"
+    flux_audio_dl.download(filename=flux_audio_dl.default_filename.replace(" ", "_"),
+                           output_path=path) # Télécharge le flux audio, en remplaçant les espaces du nom de fichier par des "_" au chemin d'accès spécifié
 elif audio_ou_video == "VIDEO": # Si l'utilisateur a demandé une video
     streams_progressive = video.streams.filter(progressive=True) # Récupère toutes les qualités possibles avec vidéo + audio (qualité max : 720p)
     flux_video_dl = streams_progressive.get_highest_resolution() # Stocke le flux vidéo que l'on souhaite télécharger, avec la qualité la plus haute possible
-    flux_video_dl.download(filename=flux_video_dl.default_filename.replace(" ", "_")) # Télécharge le flux, en remplaçant les espaces du nom de fichier par des "_"
+    flux_video_dl.download(filename=flux_video_dl.default_filename.replace(" ", "_"),
+                           output_path=path) # Télécharge le flux, en remplaçant les espaces du nom de fichier par des "_" au chemin d'accès spécifié
 else: # Si le mot clé ne colle pas
     print("Le mot clé que tu m'as donné est incorrect !")
