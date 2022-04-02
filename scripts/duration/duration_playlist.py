@@ -17,5 +17,5 @@ def duree(duree_totale_seconde):
     seconde = duree_totale_seconde # La durée totale restante correspond aux secondes (variable crée pour une meilleure lisibilitée)
     return heure, minute, seconde
 
-
-print(f"La durée de la playlist est de {heure}h{minute}m{seconde}s.") # Informe de la durée totale de la playlist
+duree_playlist = duree(duree_totale)
+print(f"La durée de la playlist est de {duree_playlist[0]}h{duree_playlist[1]}m{duree_playlist[2]}s.") # Informe de la durée totale de la playlist
