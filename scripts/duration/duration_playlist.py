@@ -17,5 +17,7 @@ def duree(duree_totale_seconde):
     seconde = duree_totale_seconde # La durée totale restante correspond aux secondes (variable crée pour une meilleure lisibilitée)
     return heure, minute, seconde
 
-duree_playlist = duree(duree_totale)
+duree_playlist = duree(duree_totale) # Calcule la durée de la playlist
+duree_moy_video = duree(round(duree_totale / len(playlist.videos))) # Calcule la durée moyenne d'une vidéo de la playlist
 print(f"La durée de la playlist est de {duree_playlist[0]}h{duree_playlist[1]}m{duree_playlist[2]}s.") # Informe de la durée totale de la playlist
+print(f"Sur les {len(playlist.videos)} vidéos de la playlist, une vidéo dure en moyenne :\n{duree_moy_video[0]}h{duree_moy_video[1]}m{duree_moy_video[2]}s")
