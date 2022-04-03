@@ -26,8 +26,7 @@ def on_complete(stream, file_path):
     file_path = file_path.split(".")[0] # Retire l'extension du fichier enregistré, pouvant être fausse
     print(f"La vidéo '{stream.title}' a bien été enregistrée dans le chemin ci-contre :\n{file_path}")
 
-def telechargement():
-    # Demande le chemin d'accès où le fichier sera téléchargé
+# Demande le chemin d'accès où le fichier sera téléchargé
     root = Tk()
     root.wm_withdraw()
     root.iconify()
@@ -37,6 +36,8 @@ def telechargement():
     # Demande le lien de la vidéo et le format souhaité
     url = input("Donne-moi un lien de vidéo à télécharger ! ") # Demande le lien de la vidéo
     audio_ou_video = input("Veux-tu télécharger uniquement un fichier AUDIO ou un fichier VIDEO (répondre par AUDIO ou VIDEO) ") # Demande ce que veut l'utilisateur
+
+def telechargement(path, url, audio_ou_video):
     video = YouTube(url,
                     on_progress_callback=on_progress,
                     on_complete_callback=on_complete,) # Crée l'objet Youtube correspondant à la vidéo
