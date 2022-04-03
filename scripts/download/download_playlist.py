@@ -3,6 +3,7 @@ from tkinter import Tk
 from tkinter.filedialog import askdirectory
 from dl_func import telechargement
 import os
+from time import sleep
 
 # Demande le chemin d'accès où le fichier sera téléchargé
 root = Tk()
@@ -27,4 +28,5 @@ for i in range(playlist.length):
     print(f"Vidéo {i+1}/{playlist.length} :")
     telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
     print()
+    sleep(1)
 print("Le téléchargement de la playlist est terminé")
