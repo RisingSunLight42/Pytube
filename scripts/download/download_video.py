@@ -27,17 +27,24 @@ def on_complete(stream, file_path):
     print(f"La vidéo '{stream.title}' a bien été enregistrée dans le chemin ci-contre :\n{file_path}")
 
 # Demande le chemin d'accès où le fichier sera téléchargé
-    root = Tk()
-    root.wm_withdraw()
-    root.iconify()
-    path = askdirectory()
-    root.destroy()
+root = Tk()
+root.wm_withdraw()
+root.iconify()
+path = askdirectory()
+root.destroy()
     
-    # Demande le lien de la vidéo et le format souhaité
-    url = input("Donne-moi un lien de vidéo à télécharger ! ") # Demande le lien de la vidéo
-    audio_ou_video = input("Veux-tu télécharger uniquement un fichier AUDIO ou un fichier VIDEO (répondre par AUDIO ou VIDEO) ") # Demande ce que veut l'utilisateur
+# Demande le lien de la vidéo et le format souhaité
+url = input("Donne-moi un lien de vidéo à télécharger ! ") # Demande le lien de la vidéo
+audio_ou_video = input("Veux-tu télécharger uniquement un fichier AUDIO ou un fichier VIDEO (répondre par AUDIO ou VIDEO) ") # Demande ce que veut l'utilisateur
 
 def telechargement(path, url, audio_ou_video):
+    """Fonction permettant de télécharger une vidéo.
+
+    Args:
+        path (str): chemin d'accès du fichier
+        url (str): lien de la vidéo
+        audio_ou_video (str): si on veut un fichier .mp4 ou .mp3
+    """
     video = YouTube(url,
                     on_progress_callback=on_progress,
                     on_complete_callback=on_complete,) # Crée l'objet Youtube correspondant à la vidéo
@@ -57,3 +64,6 @@ def telechargement(path, url, audio_ou_video):
                             output_path=path) # Télécharge le flux, en remplaçant les espaces du nom de fichier par des "_" au chemin d'accès spécifié
     else: # Si le mot clé ne colle pas
         print("Le mot clé que tu m'as donné est incorrect !")
+
+
+telechargement(path, url, audio_ou_video)
