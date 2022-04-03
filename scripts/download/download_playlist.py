@@ -1,7 +1,8 @@
 from pytube import Playlist
-import os
 from tkinter import Tk
 from tkinter.filedialog import askdirectory
+from dl_func import telechargement
+import os
 
 # Demande le chemin d'accès où le fichier sera téléchargé
 root = Tk()
@@ -18,7 +19,8 @@ playlist = Playlist(url) # Crée l'objet playlist à partir du lien donné
 
 # Si l'utilisateur veut que l'on crée un dossier
 if creation_dossier == "Oui":
-    path = os.path.join(path, playlist.title.replace(" ", "_"))
-    os.mkdir(path)
+    path = f"{path}/" + playlist.title.replace(" ", "_")
+    if not os.path.exists(path):
+        os.mkdir(path)
 
 print(path)
