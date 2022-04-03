@@ -3,7 +3,6 @@ from tkinter import Tk
 from tkinter.filedialog import askdirectory
 from dl_func import telechargement
 import os
-from time import sleep
 
 # Demande le chemin d'accès où le fichier sera téléchargé
 root = Tk()
@@ -24,9 +23,11 @@ if creation_dossier == "Oui":
     if not os.path.exists(path):
         os.mkdir(path)
 
-for i in range(playlist.length):
+for i in range(playlist.length - 1):
     print(f"Vidéo {i+1}/{playlist.length} :")
-    telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
+    try:
+        telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
+    except StopIteration: # Si jamais il y a une erreur d'iteration, relance tout de même le téléchargement
+        telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
     print()
-    sleep(1)
 print("Le téléchargement de la playlist est terminé")
