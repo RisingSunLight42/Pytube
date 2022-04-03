@@ -23,4 +23,8 @@ if creation_dossier == "Oui":
     if not os.path.exists(path):
         os.mkdir(path)
 
-print(path)
+for i in range(playlist.length):
+    print(f"Vidéo {i+1}/{playlist.length} :")
+    telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
+    print()
+print("Le téléchargement de la playlist est terminé")
