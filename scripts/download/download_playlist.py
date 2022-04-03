@@ -23,7 +23,7 @@ if creation_dossier == "Oui":
     if not os.path.exists(path):
         os.mkdir(path)
 
-for i in range(playlist.length - 1):
+for i in range(playlist.length):
     print(f"Vidéo {i+1}/{playlist.length} :")
     try:
         telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
