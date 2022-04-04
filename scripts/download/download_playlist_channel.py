@@ -33,8 +33,8 @@ if creation_dossier == "Oui":
     if not os.path.exists(path):
         os.mkdir(path)
 
-for i in range(objet.length):
-    print(f"Vidéo {i+1}/{objet.length} :")
+for i in range(len(objet.videos)):
+    print(f"Vidéo {i+1}/{len(objet.videos)} :")
     try:
         telechargement(path, objet.videos[i].watch_url, audio_ou_video)
     except StopIteration: # Si jamais il y a une erreur d'iteration, relance tout de même le téléchargement
