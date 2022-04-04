@@ -26,7 +26,10 @@ creation_dossier = input("Veux-tu avoir un dossier dédié dans le dossier que t
 
 # Si l'utilisateur veut que l'on crée un dossier
 if creation_dossier == "Oui":
-    path = f"{path}/" + objet.title.replace(" ", "_")
+    if playlist_or_channel == "playlist":
+        path = f"{path}/" + objet.title.replace(" ", "_")
+    else:
+        path = f"{path}/" + objet.channel_name.replace(" ", "_")
     if not os.path.exists(path):
         os.mkdir(path)
 
