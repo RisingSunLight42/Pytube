@@ -6,7 +6,7 @@ if playlist_or_channel == "playlist":
     objet = Playlist(url) # Crée l'objet playlist à partir du lien donné
 else:
     url = input("Donne moi le lien de la chaîne ! ") # Demande le lien de la chaîne
-    objet = Playlist(url) # Crée l'objet playlist à partir du lien donné
+    objet = Channel(url) # Crée l'objet chaîne à partir du lien donné
 
 # Boucle sur les vidéos de la playlist pour calculer la durée totale de la playlist
 duree_totale = 0
