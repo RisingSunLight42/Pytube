@@ -1,4 +1,4 @@
-from pytube import Playlist
+from pytube import Playlist, Channel
 
 url = input("Donne moi le lien de la playlist ! ") # Demande le lien de la playlist
 playlist = Playlist(url) # Crée l'objet playlist à partir du lien donné
