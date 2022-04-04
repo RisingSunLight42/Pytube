@@ -26,15 +26,15 @@ creation_dossier = input("Veux-tu avoir un dossier dédié dans le dossier que t
 
 # Si l'utilisateur veut que l'on crée un dossier
 if creation_dossier == "Oui":
-    path = f"{path}/" + playlist.title.replace(" ", "_")
+    path = f"{path}/" + objet.title.replace(" ", "_")
     if not os.path.exists(path):
         os.mkdir(path)
 
-for i in range(playlist.length):
-    print(f"Vidéo {i+1}/{playlist.length} :")
+for i in range(objet.length):
+    print(f"Vidéo {i+1}/{objet.length} :")
     try:
-        telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
+        telechargement(path, objet.videos[i].watch_url, audio_ou_video)
     except StopIteration: # Si jamais il y a une erreur d'iteration, relance tout de même le téléchargement
-        telechargement(path, playlist.videos[i].watch_url, audio_ou_video)
+        telechargement(path, objet.videos[i].watch_url, audio_ou_video)
     print()
-print("Le téléchargement de la playlist est terminé")
+print("Le téléchargement des vidéos est terminé")
