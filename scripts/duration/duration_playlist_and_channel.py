@@ -17,15 +17,6 @@ while continuer == "oui":
     
     continuer = input("Veux-tu ajouter une autre playlist/chaîne ? (oui/non) ")
 
-# Fonction permettant de calculer la durée
-def duree(duree_totale_seconde):
-    heure = duree_totale_seconde // 3600
-    duree_totale_seconde -= (duree_totale_seconde // 3600) * 3600 # Retire les secondes correspondant au nombre d'heures de la durée totale
-    minute = duree_totale_seconde // 60
-    duree_totale_seconde -= (duree_totale_seconde // 60) * 60 # Retire les secondes correspondant au nombre de minutes de la durée totale
-    seconde = duree_totale_seconde # La durée totale restante correspond aux secondes (variable crée pour une meilleure lisibilitée)
-    return heure, minute, seconde
-
 duree_objet = duree(duree_totale) # Calcule la durée de la chaîne ou de la playlist
 duree_moy_video = duree(round(duree_totale / len(objet.videos))) # Calcule la durée moyenne d'une vidéo de la playlist
 print(f"La durée totale de toutes les vidéos cumulées est de {duree_objet[0]}h{duree_objet[1]}m{duree_objet[2]}s.") # Informe de la durée totale de la playlist ou de la chaîne
