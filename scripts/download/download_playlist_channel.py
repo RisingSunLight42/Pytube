@@ -5,7 +5,7 @@ from dl_func import telechargement
 import os
 
 # Demande le lien de la playlist et le format de téléchargement souhaité
-playlist_or_channel = input("Veux-tu le temps de visionnage d'une playlist ou d'une chaîne Youtube ? (playlist/channel) ").lower() # Demande ce que veut l'utilisateur
+playlist_or_channel = input("Veux-tu télécharger une playlist ou d'une chaîne Youtube ? (playlist/channel) ").lower() # Demande ce que veut l'utilisateur
 if playlist_or_channel == "playlist":
     url = input("Donne moi le lien de la playlist ! ") # Demande le lien de la playlist
     objet = Playlist(url) # Crée l'objet playlist à partir du lien donné
