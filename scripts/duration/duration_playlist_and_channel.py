@@ -1,17 +1,19 @@
 from pytube import Playlist, Channel
 
-playlist_or_channel = input("Veux-tu le temps de visionnage d'une playlist ou d'une chaîne Youtube ? (playlist/channel) ") # Demande ce que veut l'utilisateur
-if playlist_or_channel == "playlist":
-    url = input("Donne moi le lien de la playlist ! ") # Demande le lien de la playlist
-    objet = Playlist(url) # Crée l'objet playlist à partir du lien donné
-else:
-    url = input("Donne moi le lien de la chaîne ! ") # Demande le lien de la chaîne
-    objet = Channel(url) # Crée l'objet chaîne à partir du lien donné
-
-# Boucle sur les vidéos de la playlist pour calculer la durée totale de la playlist
 duree_totale = 0
-for video in objet.videos:
-    duree_totale += video.length
+continuer = "oui"
+while continuer == "oui":
+    playlist_or_channel = input("Veux-tu le temps de visionnage d'une playlist ou d'une chaîne Youtube ? (playlist/channel) ") # Demande ce que veut l'utilisateur
+    if playlist_or_channel == "playlist":
+        url = input("Donne moi le lien de la playlist ! ") # Demande le lien de la playlist
+        objet = Playlist(url) # Crée l'objet playlist à partir du lien donné
+    else:
+        url = input("Donne moi le lien de la chaîne ! ") # Demande le lien de la chaîne
+        objet = Channel(url) # Crée l'objet chaîne à partir du lien donné
+
+    # Boucle sur les vidéos de la playlist pour calculer la durée totale de la playlist
+    for video in objet.videos:
+        duree_totale += video.length
 
 # Fonction permettant de calculer la durée
 def duree(duree_totale_seconde):
