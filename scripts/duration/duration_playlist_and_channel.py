@@ -14,6 +14,8 @@ while continuer == "oui":
     # Boucle sur les vidéos de la playlist pour calculer la durée totale de la playlist
     for video in objet.videos:
         duree_totale += video.length
+    
+    continuer = input("Veux-tu ajouter une autre playlist/chaîne ? (oui/non) ")
 
 # Fonction permettant de calculer la durée
 def duree(duree_totale_seconde):
