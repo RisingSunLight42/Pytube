@@ -1,4 +1,5 @@
 from pytube import Playlist, Channel
+from func_duree import duree
 
 duree_totale = 0
 continuer = "oui"
