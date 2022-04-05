@@ -24,7 +24,7 @@ def on_complete(stream, file_path):
     file_path = file_path.split(".")[0] # Retire l'extension du fichier enregistré, pouvant être fausse
     print(f"La vidéo '{stream.title}' a bien été enregistrée dans le chemin ci-contre :\n{file_path}")
 
-def telechargement(path, url, audio_ou_video):
+def telechargement(path: str, url: str, audio_ou_video: str) -> None:
     """Fonction permettant de télécharger une vidéo.
 
     Args:

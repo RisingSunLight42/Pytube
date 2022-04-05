@@ -5,7 +5,7 @@ from dl_func import telechargement
 import os
 
 # Demande le lien de la playlist et le format de téléchargement souhaité
-playlist_or_channel = input("Veux-tu le temps de visionnage d'une playlist ou d'une chaîne Youtube ? (playlist/channel) ") # Demande ce que veut l'utilisateur
+playlist_or_channel = input("Veux-tu télécharger une playlist ou d'une chaîne Youtube ? (playlist/channel) ").lower() # Demande ce que veut l'utilisateur
 if playlist_or_channel == "playlist":
     url = input("Donne moi le lien de la playlist ! ") # Demande le lien de la playlist
     objet = Playlist(url) # Crée l'objet playlist à partir du lien donné
@@ -21,11 +21,11 @@ path = askdirectory()
 root.destroy()
 
 # Demande ce que veut l'utilisateur en extension et dossier
-audio_ou_video = input("Veux-tu télécharger uniquement les vidéos en AUDIO ou en VIDEO (répondre par AUDIO ou VIDEO) ")
-creation_dossier = input("Veux-tu avoir un dossier dédié dans le dossier que tu as choisi ? Oui/Non ")
+audio_ou_video = input("Veux-tu télécharger uniquement les vidéos en AUDIO ou en VIDEO (répondre par AUDIO ou VIDEO) ").upper()
+creation_dossier = input("Veux-tu avoir un dossier dédié dans le dossier que tu as choisi ? Oui/Non ").lower()
 
 # Si l'utilisateur veut que l'on crée un dossier
-if creation_dossier == "Oui":
+if creation_dossier == "oui":
     if playlist_or_channel == "playlist":
         path = f"{path}/" + objet.title.replace(" ", "_")
     else:
