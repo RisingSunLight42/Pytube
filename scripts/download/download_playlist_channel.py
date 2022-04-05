@@ -21,11 +21,11 @@ path = askdirectory()
 root.destroy()
 
 # Demande ce que veut l'utilisateur en extension et dossier
-audio_ou_video = input("Veux-tu télécharger uniquement les vidéos en AUDIO ou en VIDEO (répondre par AUDIO ou VIDEO) ")
-creation_dossier = input("Veux-tu avoir un dossier dédié dans le dossier que tu as choisi ? Oui/Non ")
+audio_ou_video = input("Veux-tu télécharger uniquement les vidéos en AUDIO ou en VIDEO (répondre par AUDIO ou VIDEO) ").upper()
+creation_dossier = input("Veux-tu avoir un dossier dédié dans le dossier que tu as choisi ? Oui/Non ").lower()
 
 # Si l'utilisateur veut que l'on crée un dossier
-if creation_dossier.lower() == "oui":
+if creation_dossier == "oui":
     if playlist_or_channel == "playlist":
         path = f"{path}/" + objet.title.replace(" ", "_")
     else:
