@@ -97,13 +97,13 @@ def telechargement(path: str, url: str, audio_ou_video: str) -> None:
                     on_progress_callback=on_progress,
                     on_complete_callback=on_complete,)  # Crée l'objet Youtube correspondant à la vidéo
 
-    if audio_ou_video == "AUDIO":
+    if audio_ou_video == "A":
         telechargement_audio(video, path)
-    elif audio_ou_video == "VIDEO":
-        nom_audio = telechargement_audio(video, path)
-        nom_video = telechargement_video(video, path)
-        combine_audio(nom_video[0], nom_audio, nom_video[1])
-        remove(nom_audio)
-        remove(nom_video[0])
+    elif audio_ou_video == "V":
+        nomAudio = telechargement_audio(video, path)
+        nomVideo = telechargement_video(video, path)
+        combine_audio(nomVideo[0], nomAudio, nomVideo[1])
+        remove(nomAudio)
+        remove(nomVideo[0])
     else:
         print("Le mot clé que tu m'as donné est incorrect !")
