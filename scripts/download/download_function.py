@@ -2,6 +2,7 @@ from pytube import YouTube, Stream
 import moviepy.editor as mpe
 from os import rename, remove
 from os.path import splitext
+from typing import Tuple
 
 
 def on_progress(stream, chunk, bytes_remaining) -> None:
@@ -67,7 +68,7 @@ def telechargement_audio(video: YouTube, path: str) -> str:
     return sortie_dl_rename
 
 
-def telechargement_video(video: YouTube, path: str) -> tuple:
+def telechargement_video(video: YouTube, path: str) -> Tuple[str]:
     """Fonction qui permet de télécharger une vidéo au maximum de sa qualité (sans son)
 
     Args:
@@ -75,7 +76,7 @@ def telechargement_video(video: YouTube, path: str) -> tuple:
         path (str): chemin d'accès du fichier
 
     Returns:
-        tuple: tuple de deux éléments, un avec le nom du fichier téléchargé sans son, et un pour le fichier avec son
+        Tuple[str]: tuple de deux éléments, un avec le nom du fichier téléchargé sans son, et un pour le fichier avec son
     """
     streams_progressive = video.streams.filter(adaptive=True)
     video_flux: Stream = streams_progressive[0]
